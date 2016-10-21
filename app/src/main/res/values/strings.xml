@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Devfest2016Sample</string>
+    <string name="socket_io_logging">Socket IO Logging</string>
+    <string name="okhttp_logging">OkHttp Logging</string>
+</resources>
