@@ -3,6 +3,7 @@ package kingori.pe.kr.devfest;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -64,6 +65,15 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.link_socket)
     public void moveToSocket() {
         startActivity(new Intent(this, SocketIOActivity.class));
+    }
+
+    @OnClick(R.id.show_last_exec_time)
+    public void showLastExecTime() {
+        Toast.makeText(this, "Last Exec Time:" +
+                        DateUtils.formatDateTime(this,
+                                getSharedPreferences(Constants.PREF_FILE_NAME, MODE_PRIVATE).getLong(Constants.PREF_LAST_EXEC_TIME, 0)
+                                , DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL),
+                Toast.LENGTH_SHORT).show();
     }
 
 

@@ -1,5 +1,7 @@
 package kingori.pe.kr.devfest;
 
+import android.content.SharedPreferences;
+
 import okhttp3.OkHttpClient;
 
 public abstract class BaseApplication extends android.app.Application {
@@ -12,6 +14,9 @@ public abstract class BaseApplication extends android.app.Application {
         super.onCreate();
         okHttpClient = createOkHtpClientBuilder().build();
         socketIOLogger = createSocketIOLogger();
+
+        SharedPreferences sf = getSharedPreferences(Constants.PREF_FILE_NAME, MODE_PRIVATE);
+        sf.edit().putLong(Constants.PREF_LAST_EXEC_TIME, System.currentTimeMillis()).commit();
     }
 
     protected SocketIOLogger createSocketIOLogger() {
