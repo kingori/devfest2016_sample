@@ -8,10 +8,12 @@ public abstract class BaseApplication extends android.app.Application {
 
     private static OkHttpClient okHttpClient;
     private static SocketIOLogger socketIOLogger;
+    private static BaseApplication instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         okHttpClient = createOkHtpClientBuilder().build();
         socketIOLogger = createSocketIOLogger();
 
@@ -37,7 +39,6 @@ public abstract class BaseApplication extends android.app.Application {
         }
     }
 
-
     public static OkHttpClient getOkHttpClient() {
         return okHttpClient;
     }
@@ -48,6 +49,10 @@ public abstract class BaseApplication extends android.app.Application {
 
     protected OkHttpClient.Builder createOkHtpClientBuilder() {
         return new OkHttpClient.Builder();
+    }
+
+    public static BaseApplication getInstance() {
+        return instance;
     }
 
 }

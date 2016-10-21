@@ -8,3 +8,5 @@
 /captures
 .externalNativeBuild
 /socket_io_chat_server
+*.pyc
+
