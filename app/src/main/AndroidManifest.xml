@@ -20,6 +20,9 @@
         <activity android:name=".SocketIOActivity"
             android:label="@string/socket_io_logging"
             ></activity>
+        <activity android:name=".MemoryLeakActivity"
+            android:label="@string/memory_leak"
+            ></activity>
 
     </application>
 

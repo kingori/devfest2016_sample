@@ -76,5 +76,8 @@ public class MainActivity extends BaseActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
-
+    @OnClick(R.id.link_leak)
+    public void moveToLeak() {
+        startActivity(new Intent(this, MemoryLeakActivity.class));
+    }
 }
