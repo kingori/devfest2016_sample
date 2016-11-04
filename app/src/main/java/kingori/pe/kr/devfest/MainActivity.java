@@ -41,10 +41,10 @@ public class MainActivity extends BaseActivity {
                 try {
                     Response resp = Application.getOkHttpClient().newCall(
                             new Request.Builder().url(params[0]).build()).execute();
-                    try (BufferedInputStream bis = new BufferedInputStream(resp.body().byteStream())) {
-                        do {
-                            bis.read();
-                        } while (bis.available() > 0);
+                    try (BufferedInputStream bis =
+                                 new BufferedInputStream(resp.body().byteStream())) {
+                        while(bis.read() != -1) {
+                        }
                     } catch (IOException e) {
                         resp = null;
                     }
@@ -71,7 +71,8 @@ public class MainActivity extends BaseActivity {
     public void showLastExecTime() {
         Toast.makeText(this, "Last Exec Time:" +
                         DateUtils.formatDateTime(this,
-                                getSharedPreferences(Constants.PREF_FILE_NAME, MODE_PRIVATE).getLong(Constants.PREF_LAST_EXEC_TIME, 0)
+                                getSharedPreferences(Constants.PREF_FILE_NAME, MODE_PRIVATE)
+                                        .getLong(Constants.PREF_LAST_EXEC_TIME, 0)
                                 , DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL),
                 Toast.LENGTH_SHORT).show();
     }
