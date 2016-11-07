@@ -1,5 +1,7 @@
 # devfest2016_sample
 
+발표자료: http://www.slideshare.net/kingori/ss-68326596
+
 ## 소켓서버 설정 방법
 
 1.    [socket io master zip](https://github.com/socketio/socket.io/archive/master.zip) 다운로드
